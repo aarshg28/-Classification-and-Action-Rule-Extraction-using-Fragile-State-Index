@@ -1,0 +1,85 @@
+Randomizable Filter Classifier : 
+
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.RandomizableFilteredClassifier -F "weka.filters.unsupervised.attribute.RandomProjection -N 10 -R 42 -D Sparse1" -S 1 -W weka.classifiers.lazy.IBk -- -K 1 -W 0 -A "weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\""
+Relation:     Group-14-Original-weka.filters.unsupervised.attribute.Discretize-B10-M-1.0-Rfirst-last-precision6
+Instances:    178
+Attributes:   17
+              Country
+              Year
+              Rank
+              Total
+              C1: Security Apparatus
+              C2: Factionalized Elites
+              C3: Group Grievance
+              E1: Economy
+              E2: Economic Inequality
+              E3: Human Flight and Brain Drain
+              P1: State Legitimacy
+              P2: Public Services
+              P3: Human Rights
+              S1: Demographic Pressures
+              S2: Refugees and IDPs
+              X1: External Intervention
+              Fragile State Index
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+RandomizableFilteredClassifier using weka.classifiers.lazy.IBk -K 1 -W 0 -A "weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\"" on data filtered through weka.filters.unsupervised.attribute.RandomProjection -N 10 -R -990970977 -D Sparse1
+
+Filtered Header
+@relation Group-14-Original-weka.filters.unsupervised.attribute.Discretize-B10-M-1.0-Rfirst-last-precision6-weka.filters.supervised.attribute.NominalToBinary-weka.filters.unsupervised.attribute.RandomProjection-N10-R-990970977-DSparse1
+
+@attribute K1 numeric
+@attribute K2 numeric
+@attribute K3 numeric
+@attribute K4 numeric
+@attribute K5 numeric
+@attribute K6 numeric
+@attribute K7 numeric
+@attribute K8 numeric
+@attribute K9 numeric
+@attribute K10 numeric
+@attribute 'Fragile State Index' {Alert,Warning,Stable,Sustainable}
+
+@data
+
+
+Classifier Model
+IB1 instance-based classifier
+using 1 nearest neighbour(s) for classification
+
+
+Time taken to build model: 0.06 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         104               58.427  %
+Incorrectly Classified Instances        74               41.573  %
+Kappa statistic                          0.3753
+Mean absolute error                      0.2119
+Root mean squared error                  0.4505
+Relative absolute error                 64.3474 %
+Root relative squared error            111.1696 %
+Total Number of Instances              178     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.629    0.168    0.478      0.629    0.543      0.418    0.709     0.371     Alert
+                 0.663    0.292    0.694      0.663    0.678      0.371    0.672     0.624     Warning
+                 0.385    0.108    0.500      0.385    0.435      0.306    0.639     0.323     Stable
+                 0.533    0.055    0.471      0.533    0.500      0.452    0.719     0.292     Sustainable
+Weighted Avg.    0.584    0.207    0.590      0.584    0.583      0.373    0.676     0.481     
+
+=== Confusion Matrix ===
+
+  a  b  c  d   <-- classified as
+ 22  9  2  2 |  a = Alert
+ 17 59 11  2 |  b = Warning
+  5 14 15  5 |  c = Stable
+  2  3  2  8 |  d = Sustainable
+
